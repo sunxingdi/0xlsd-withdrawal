@@ -8,6 +8,10 @@
 
 案例交易哈希：https://bscscan.com/tx/0x120be12320d222acd7d7c679304cec669265d30197fdff90ae306e0603d3d00c
 
+### 问题描述
+
+在平台质押的资金，LP个人能否直接调用合约函数提现？
+
 ### 交易分析
 
 1. Tx Input Data：
@@ -52,6 +56,8 @@ From 0x2bB76C...eA644d92 To Null: 0x000...000 For 0.000003263150566853  0XLSD...
 ### 合约分析
 
 teamIncome函数中，第一步是验签操作。注意此处验签账户为_key，来源于构造函数参数，这是一个项目方账户，可以在合约代码界面查看账户地址。
+
+结论：LP个人无法调用合约函数提现，只能通过项目前端软件触发提现。
 
 ```
 function teamIncome(uint256 id,address tokenIn,uint256 amount,uint256 feeNum,address recive,bytes memory signature) external {
